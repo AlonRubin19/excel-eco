@@ -107,10 +107,16 @@ const instructions = [
     }
 ];
 
-// ... (קוד ה-instructions הקיים)
-
 function createQuestionButtons() {
     const buttonContainer = document.getElementById('questionButtons');
+    
+    // הוספת כפתור להצגת כל ההנחיות
+    const allInstructionsButton = document.createElement('button');
+    allInstructionsButton.textContent = "הצג את כל ההנחיות";
+    allInstructionsButton.onclick = showAllInstructions;
+    buttonContainer.appendChild(allInstructionsButton);
+    
+    // הוספת כפתורים לכל שאלה
     instructions.forEach(item => {
         const button = document.createElement('button');
         button.textContent = `שאלה ${item.question}`;
@@ -139,7 +145,4 @@ function showAllInstructions() {
     `).join('<hr>');
 }
 
-
-
 createQuestionButtons();
-
