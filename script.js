@@ -6,7 +6,7 @@ const instructions = [
             "פתח את קובץ האקסל 'GRADES.xlsx'",
             "צור עמודה חדשה 'male_skipped' = male * skipped",
             "הפעל את כלי הרגרסיה: Data > Data Analysis > Regression",
-            "הגדר: Y Range = עמודת grade, X Range = עמודות male, skipped, male_skipped",
+            " Y Range = עמודת grade, X Range = עמודות male, skipped, male_skipped",
             "בדוק את ערך t-statistic של 'male_skipped' בטבלת המקדמים בפלט"
         ]
     },
