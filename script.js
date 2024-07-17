@@ -107,7 +107,8 @@ const instructions = [
     }
 ];
 
-// שאר הקוד נשאר ללא שינוי
+// ... (קוד ה-instructions הקיים)
+
 function createQuestionButtons() {
     const buttonContainer = document.getElementById('questionButtons');
     instructions.forEach(item => {
@@ -138,4 +139,28 @@ function showAllInstructions() {
     `).join('<hr>');
 }
 
+function setupSearch() {
+    const searchInput = document.getElementById('search');
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        const filteredInstructions = instructions.filter(item => 
+            item.title.toLowerCase().includes(searchTerm) || 
+            item.steps.some(step => step.toLowerCase().includes(searchTerm))
+        );
+        updateButtons(filteredInstructions);
+    });
+}
+
+function updateButtons(filteredInstructions) {
+    const buttonContainer = document.getElementById('questionButtons');
+    buttonContainer.innerHTML = '';
+    filteredInstructions.forEach(item => {
+        const button = document.createElement('button');
+        button.textContent = `שאלה ${item.question}`;
+        button.onclick = () => showInstructions(item);
+        buttonContainer.appendChild(button);
+    });
+}
+
 createQuestionButtons();
+setupSearch();
